@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Splash from './components/Splash'
 
 import './index.css';
-import 'antd/dist/antd.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Splash />
   </React.StrictMode>,
   document.getElementById('root')
 );

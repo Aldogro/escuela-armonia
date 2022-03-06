@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&display=swap');
+@import 'antd/dist/antd.min.css';
 
 body {
-  margin: 0;
   font-family: Fredoka, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+.ant-layout {
+  background: #FFFAE5;
 }
