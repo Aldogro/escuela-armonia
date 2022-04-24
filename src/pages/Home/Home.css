@@ -36,6 +36,11 @@
 }
 
 @media (max-width: 600px) {
+    .home-banner {
+        width: calc(100% + 48px);
+        margin-left: -24px;
+    }
+
     .home-text {
         margin: 20px 20px;
     }
