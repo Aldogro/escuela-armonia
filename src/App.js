@@ -1,46 +1,22 @@
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { routes } from 'routes/routes'
 
-import React, { useState } from 'react'
-import { Layout } from 'antd'
-
-import { MenuOutlined } from '@ant-design/icons'
-
-import CustomDrawer from './CustomDrawer'
-
-import logoHorizontal from './assets/images/logo-horizontal.svg'
-import './App.css'
-
-const { Header, Content } = Layout
+import NavWrapper from 'components/NavWrapper'
+import ComingSoon from 'components/ComingSoon'
+import Home from 'pages/Home'
 
 const App = () => {
-  const [collapsed, setCollapsed] = useState(false)
-
-  const toggleCollapsed = () => setCollapsed(!collapsed)
-
   return (
-    <div className="App">
-      <CustomDrawer collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
-      <Layout>
-        <Layout className="site-layout">
-          <Header className="site-layout-background layout-header" style={{ padding: 0 }}>
-            <MenuOutlined
-              className="trigger"
-              onClick={toggleCollapsed}
-            />
-            <img src={logoHorizontal} height="50px" alt="logo" /><b>Escuela de terapias complementarias</b>
-          </Header>
-          <Content
-            className="site-layout-background layout-content"
-            style={{
-              margin: '24px 16px',
-              padding: 24,
-              minHeight: 'calc(100vh - 112px)',
-            }}
-          >
-            Contenido
-          </Content>
-        </Layout>
-      </Layout>
-    </div>
+    <NavWrapper>
+      <Routes>
+        <Route path={routes.CURSOS} element={<ComingSoon title="Cursos"/>} />
+        <Route path={routes.BLOG} element={<ComingSoon title="Blog" />} />
+        <Route path={routes.CONTACTO} element={<ComingSoon title="Contacto" />} />
+        <Route path={routes.ADMIN} element={<ComingSoon title="Admin" />} />
+        <Route path={routes.HOME} element={<Home />} />
+      </Routes>
+    </NavWrapper>
   )
 }
 

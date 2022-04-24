@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
-
 import { Button } from 'antd'
-
-import App from '../App'
-
+import App from 'App'
 import './Splash.css'
-
-import logo from '../assets/images/logo.svg'
+import logo from 'assets/images/logo.svg'
 
 const Splash = () => {
   const [showUnderConstruction, setShowUnderConstruction] = useState(false)
