@@ -33,8 +33,21 @@
   border: 1px solid #ccc;
 }
 
+.layout-content--wrapper {
+  margin: 0px auto;
+  width: 100%;
+  max-width: 1200px;
+  padding: 24px;
+}
+
 .site-layout .layout-content {
   background: #FFFFFF;
+}
+
+.layout-content--wrapper {
+  margin: 0px auto;
+  width: 100%;
+  max-width: 1200px;
 }
 
 @media (max-width: 600px) {

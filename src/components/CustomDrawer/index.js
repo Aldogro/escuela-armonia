@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { routes } from 'routes/routes'
 
 import { Drawer } from 'antd'
 import {
@@ -9,34 +11,34 @@ import {
   UserOutlined
 } from '@ant-design/icons'
 
-import logoHorizontal from './assets/images/logo-horizontal.svg'
+import logoHorizontal from 'assets/images/logo-horizontal.svg'
 import './CustomDrawer.css'
 
 const menuItems = [
   {
     title: 'Inicio',
     icon: <HomeOutlined />,
-    route: '/'
+    route: routes.HOME,
   },
   {
     title: 'Cursos',
     icon: <BulbOutlined />,
-    route: '/courses'
+    route: routes.CURSOS,
   },
   {
     title: 'Blog',
     icon: <ReadOutlined />,
-    route: '/blog'
+    route: routes.BLOG,
   },
   {
     title: 'Contacto',
     icon: <PhoneOutlined />,
-    route: '/contact'
+    route: routes.CONTACTO,
   },
   {
     title: 'Admin',
     icon: <UserOutlined />,
-    route: '/admin'
+    route: routes.ADMIN,
   }
 ]
 
@@ -58,10 +60,12 @@ const CustomDrawer = ({ collapsed, toggleCollapsed}) => {
       width="100%"
       >
         {menuItems.map(menuItem => (
-          <div className="menu-item">
-            {menuItem.icon}
-            {menuItem.title}
-          </div>
+          <Link to={menuItem.route} key={menuItem.title} onClick={toggleCollapsed}>
+            <div className="menu-item">
+              {menuItem.icon}
+              {menuItem.title}
+            </div>
+          </Link>
         ))}
       </Drawer>
   )
