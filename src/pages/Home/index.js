@@ -1,14 +1,33 @@
 import React from 'react'
-import { Card } from 'antd'
+import { Card, Carousel } from 'antd'
 import { therapies } from './therapies';
 import './Home.css'
 
 const { Meta } = Card;
 
+const contentStyle = {
+    height: '160px',
+    color: '#fff',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: '#579A62',
+};
+
 const Home = () => {
     return (
         <div>
             <div className="home-banner" />
+            <Carousel>
+                <div>
+                    <div style={contentStyle}>Curso 1</div>
+                </div>
+                <div>
+                    <div style={contentStyle}>Curso 2</div>
+                </div>
+                <div>
+                    <div style={contentStyle}>Curso 3</div>
+                </div>
+            </Carousel>
             <h2 className="home-title">¿Qué son las terapias complementarias?</h2>
             <div className="home-text">
                 <p>Las terapias Complementarias en los últimos años se están usando junto a la

@@ -10,9 +10,10 @@
 }
 
 .home-title {
+    margin-top: 60px;
+    padding: 10px;
     border-left: 7px solid #579A62;
     background-color: #c1f8ca;
-    padding: 10px;
 }
 
 .home-text {

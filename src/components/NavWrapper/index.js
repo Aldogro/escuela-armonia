@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react'
-import { Layout } from 'antd'
+import { BackTop, Layout } from 'antd'
 
-import { MenuOutlined } from '@ant-design/icons'
+import { MenuOutlined, UpOutlined } from '@ant-design/icons'
 import CustomDrawer from '../CustomDrawer'
 import logoHorizontal from 'assets/images/logo-horizontal.svg'
 
@@ -36,6 +36,11 @@ const NavWrapper = ({ children }) => {
           </Content>
         </Layout>
       </Layout>
+      <BackTop>
+        <div className="back-to-top">
+          <UpOutlined className="back-to-top--icon" />
+        </div>
+      </BackTop>
     </div>
   )
 }

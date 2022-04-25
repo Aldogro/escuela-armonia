@@ -50,6 +50,19 @@
   padding: 0px 24px;
 }
 
+.back-to-top {
+  height: 50px;
+  width: 50px;
+  background-color: #579A62;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.back-to-top--icon {
+  color: white;
+}
+
 @media (max-width: 600px) {
   .ant-layout-header b {
     display: none;
