@@ -1,34 +1,56 @@
+:root {
+    --primary: #579A62;
+    --analog1: #74B07E;
+    --analog2: #579A84;
+    --analog3: #6D9A57;
+    --opposite: #576D9A;
+    --complementary: #9A578F;
+    --extra: #9A8457;
+    --gray: #CCCCCC;
+  }
+
 .home-banner {
-    height: 300px;
+    height: 200px;
     width: 100%;
     background-image: url('assets/images/bamboo.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-position: center;
-    margin-bottom: 24px;
+    background-position: 50% 50%;
+}
+
+.slide-wrapper {
+    height: 100%;
+}
+
+.carrousel-style {
+    color: #FFFFFF;
+    text-align: center;
+    background: var(--primary);
 }
 
 .home-title {
-    margin-top: 60px;
+    margin-top: 40px;
     padding: 10px;
-    border-left: 7px solid #579A62;
-    background-color: #c1f8ca;
+    border-left: 7px solid var(--primary);
+    background-color: var(--analog1);
+    font-size: 1.4rem;
 }
 
 .home-text {
     margin: 60px 60px;
+    font-size: 1.1rem;
 }
 
 .ant-card {
-    border-left: 7px solid #579A62;
+    border-left: 7px solid var(--primary);
     border-radius: 20px;
     margin: 10px 0px;
-    box-shadow: 10px 10px 40px #ccc;
+    box-shadow: 10px 10px 40px var(--gray);
     transition: 0.3s;
 }
 .ant-card:hover {
-    box-shadow: 10px 10px 10px #ccc;
+    box-shadow: 10px 10px 10px var(--gray);
 }
 
 .ant-card-meta {
@@ -36,10 +58,17 @@
     align-items: center;
 }
 
+.ant-card-meta-description {
+    font-size: 1rem;
+}
+
 @media (max-width: 600px) {
     .home-banner {
-        width: calc(100% + 48px);
-        margin-left: -24px;
+        display: none;
+    }
+
+    .home-title {
+        font-size: 1.3rem;
     }
 
     .home-text {

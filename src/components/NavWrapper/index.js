@@ -8,7 +8,7 @@ import logoHorizontal from 'assets/images/logo-horizontal.svg'
 
 import './NavWrapper.css'
 
-const { Header, Content } = Layout
+const { Header, Content, Footer } = Layout
 
 const NavWrapper = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false)
@@ -30,10 +30,11 @@ const NavWrapper = ({ children }) => {
             </div>
           </Header>
           <Content className="site-layout-background layout-content">
-            <div className="layout-content--wrapper">
+            <div>
               {children}
             </div>
           </Content>
+          <Footer style={{ textAlign: 'center' }}>Escuela Armonía ©{new Date().getFullYear()}</Footer>
         </Layout>
       </Layout>
       <BackTop>

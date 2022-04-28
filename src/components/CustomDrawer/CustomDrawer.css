@@ -4,5 +4,20 @@
   align-items: center;
   gap: 10px;
   margin-top: 10px;
-  color: #579A62;
+  color: var(--primary);
+}
+
+.ant-drawer-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ant-drawer-body .social-media {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+  color: var(--primary);
+  font-size: 2rem;
 }

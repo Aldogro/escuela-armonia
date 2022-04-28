@@ -7,7 +7,7 @@
 }
 
 .ant-layout-header .trigger:hover {
-  color: #579A62;
+  color: var(--primary);
 }
 
 .ant-layout-header {
@@ -30,7 +30,7 @@
 
 .site-layout .layout-header {
   background: #FFFAE5;
-  border: 1px solid #ccc;
+  border: 1px solid var(--gray);
 }
 
 .layout-header--wrapper {
@@ -53,7 +53,7 @@
 .back-to-top {
   height: 50px;
   width: 50px;
-  background-color: #579A62;
+  background-color: var(--primary);
   border-radius: 50%;
   display: flex;
   justify-content: center;

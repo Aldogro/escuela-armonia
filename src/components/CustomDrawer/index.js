@@ -8,7 +8,10 @@ import {
   HomeOutlined,
   PhoneOutlined,
   ReadOutlined,
-  UserOutlined
+  UserOutlined,
+  FacebookFilled,
+  InstagramFilled,
+  WhatsAppOutlined,
 } from '@ant-design/icons'
 
 import logoHorizontal from 'assets/images/logo-horizontal.svg'
@@ -67,6 +70,17 @@ const CustomDrawer = ({ collapsed, toggleCollapsed}) => {
             </div>
           </Link>
         ))}
+        <div className="social-media">
+          <div>
+            <FacebookFilled />
+          </div>
+          <div>
+            <InstagramFilled />
+          </div>
+          <div>
+            <WhatsAppOutlined />
+          </div>
+        </div>
       </Drawer>
   )
 }
