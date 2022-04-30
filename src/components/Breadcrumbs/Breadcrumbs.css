@@ -1,0 +1,13 @@
+.breadcrumbs-wrapper {
+    background-color: var(--gray);
+    width: 100%;
+    margin: 0px 0px 40px 0px;
+}
+
+.ant-breadcrumb {
+    margin: 0px auto;
+    max-width: 1200px;
+    padding: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}

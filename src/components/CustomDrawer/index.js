@@ -6,15 +6,13 @@ import { Drawer } from 'antd'
 import {
   BulbOutlined,
   HomeOutlined,
-  PhoneOutlined,
+  TeamOutlined,
   ReadOutlined,
-  UserOutlined,
-  FacebookFilled,
-  InstagramFilled,
-  WhatsAppOutlined,
+  LockOutlined,
 } from '@ant-design/icons'
-
+import { FacebookContact, InstagramContact, WhatsappContact } from 'components/SocialMediaContacts'
 import logoHorizontal from 'assets/images/logo-horizontal.svg'
+
 import './CustomDrawer.css'
 
 const menuItems = [
@@ -34,13 +32,13 @@ const menuItems = [
     route: routes.BLOG,
   },
   {
-    title: 'Contacto',
-    icon: <PhoneOutlined />,
-    route: routes.CONTACTO,
+    title: 'Nosotras',
+    icon: <TeamOutlined />,
+    route: routes.ABOUT_US,
   },
   {
     title: 'Admin',
-    icon: <UserOutlined />,
+    icon: <LockOutlined />,
     route: routes.ADMIN,
   }
 ]
@@ -71,15 +69,9 @@ const CustomDrawer = ({ collapsed, toggleCollapsed}) => {
           </Link>
         ))}
         <div className="social-media">
-          <div>
-            <FacebookFilled />
-          </div>
-          <div>
-            <InstagramFilled />
-          </div>
-          <div>
-            <WhatsAppOutlined />
-          </div>
+          <FacebookContact />
+          <InstagramContact />
+          <WhatsappContact />
         </div>
       </Drawer>
   )

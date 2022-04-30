@@ -1,25 +1,43 @@
 import React from 'react'
+
 import { Card, Carousel } from 'antd'
+import { HomeOutlined } from '@ant-design/icons'
+
 import CarouselSlide from './CarouselSlide'
 import CourseCard from './CourseCard'
-
+import Breadcrumbs from 'components/Breadcrumbs'
 import { therapies } from './therapies'
+import { courses } from './courses' 
 import './Home.css'
 
 const { Meta } = Card;
+
+const breadcrumbs = [
+    {
+        route: '/',
+        icon: <HomeOutlined />,
+        content: 'Inicio',
+    }
+]
 
 const Home = () => {
     return (
         <div>
             <div className="home-banner" />
             <Carousel>
-                <CarouselSlide>
-                    <CourseCard />
-                </CarouselSlide>
-                <CarouselSlide>
-                    <CourseCard />
-                </CarouselSlide>
+                {courses.map(({ title, startAt, facilitator, contactInfo, description }) => (
+                    <CarouselSlide key={title}>
+                        <CourseCard
+                            title={title}
+                            startAt={startAt}
+                            facilitator={facilitator}
+                            contactInfo={contactInfo}
+                            description={description}
+                        />
+                    </CarouselSlide>    
+                ))}
             </Carousel>
+            <Breadcrumbs items={breadcrumbs} />
             <div className="layout-content--wrapper">
                 <h2 className="home-title">¿Qué son las terapias complementarias?</h2>
                 <div className="home-text">

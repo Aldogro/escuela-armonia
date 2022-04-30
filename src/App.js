@@ -5,6 +5,7 @@ import { routes } from 'routes/routes'
 import NavWrapper from 'components/NavWrapper'
 import ComingSoon from 'components/ComingSoon'
 import Home from 'pages/Home'
+import AboutUs from 'pages/AboutUs'
 
 const App = () => {
   return (
@@ -12,7 +13,7 @@ const App = () => {
       <Routes>
         <Route path={routes.CURSOS} element={<ComingSoon title="Cursos"/>} />
         <Route path={routes.BLOG} element={<ComingSoon title="Blog" />} />
-        <Route path={routes.CONTACTO} element={<ComingSoon title="Contacto" />} />
+        <Route path={routes.ABOUT_US} element={<AboutUs title="Nosotras" />} />
         <Route path={routes.ADMIN} element={<ComingSoon title="Admin" />} />
         <Route path={routes.HOME} element={<Home />} />
       </Routes>

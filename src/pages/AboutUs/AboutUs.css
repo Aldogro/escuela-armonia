@@ -1,0 +1,20 @@
+.about-us--container {
+    margin-top: 40px;
+    font-size: 1rem;
+}
+
+.about-us--container .ant-card {
+    height: 100%;
+}
+.about-us--container .ant-card-body {
+    height: 100%;
+}
+.about-us--container .ant-card-meta {
+    height: 100%;
+}
+
+@media (max-width: 600px) {
+    .about-us--container {
+      text-align: center;
+    }
+  }

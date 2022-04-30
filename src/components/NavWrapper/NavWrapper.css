@@ -41,6 +41,7 @@
 
 .site-layout .layout-content {
   background: #FFFFFF;
+  padding-bottom: 174px;
 }
 
 .layout-content--wrapper {
@@ -61,6 +62,27 @@
 }
 .back-to-top--icon {
   color: white;
+}
+
+.layout-footer {
+  background-color: var(--analog1-50p);
+  backdrop-filter: blur(4px);
+  font-size: 1rem;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+}
+.layout-footer .social-media {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  font-size: 2rem;
+}
+.layout-footer .social-media .anticon {
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {

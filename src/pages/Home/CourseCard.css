@@ -1,4 +1,5 @@
 .course-card-wrapper {
+    height: 100%;
     display: flex;
     padding: 20px 0px;
     gap: 20px;
@@ -7,36 +8,49 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .course-card-wrapper .course-text .header {
+    align-self: flex-start;
     font-weight: 600;
     font-size: 1.1rem;
 }
 .course-card-wrapper .course-text .title {
     font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 .course-card-wrapper .course-text .date {
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: var(--complementary);
 }
 .course-card-wrapper .course-text .description {
-    font-size: 1.1rem;
-    text-align: left;
+    font-size: 1.3rem;
+    text-align: center;
+    height: 73px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
 }
+.course-text .description p {
+    margin-bottom: 0px;
+}
+
 .course-card-wrapper .course-text .facilitator {
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 .course-card-wrapper .course-contact-info {
     display: flex;
     gap: 40px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-size: 2rem;
+}
+.course-card-wrapper .course-contact-info a {
+    color: white;
 }
 
 .course-text {
@@ -54,6 +68,7 @@
         width: 100%;
     }
     .course-card-wrapper {
+        height: 100%;
         flex-direction: column;
         justify-content: space-around;
     }
@@ -61,11 +76,11 @@
     .course-card-wrapper .course-text {
         display: flex;
         flex-direction: column;
-        text-align: left;
+        align-items: center;
     }
 
     .course-card-wrapper .course-text .header {
-        text-align: right;
+        align-self: flex-end;
         margin-bottom: 10px;
     }
 
@@ -80,10 +95,15 @@
     }
     .course-card-wrapper .course-text .description {
         font-size: 1rem;
+        text-align: center;
+        height: 73px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
     }
     .course-card-wrapper .course-text .facilitator {
         font-weight: 600;
-        margin-top: 20px;
         text-align: right;
     }
 

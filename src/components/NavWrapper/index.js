@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react'
 import { BackTop, Layout } from 'antd'
-
 import { MenuOutlined, UpOutlined } from '@ant-design/icons'
+import { FacebookContact, InstagramContact, WhatsappContact } from 'components/SocialMediaContacts'
 import CustomDrawer from '../CustomDrawer'
 import logoHorizontal from 'assets/images/logo-horizontal.svg'
 
@@ -34,7 +34,14 @@ const NavWrapper = ({ children }) => {
               {children}
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Escuela Armonía ©{new Date().getFullYear()}</Footer>
+          <Footer className="layout-footer">
+            Escuela Armonía ©{new Date().getFullYear()}
+            <div className="social-media">
+              <FacebookContact />
+              <InstagramContact />
+              <WhatsappContact />
+            </div>
+          </Footer>
         </Layout>
       </Layout>
       <BackTop>

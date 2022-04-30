@@ -1,6 +1,7 @@
 :root {
     --primary: #579A62;
     --analog1: #74B07E;
+    --analog1-50p: #73b07d80;
     --analog2: #579A84;
     --analog3: #6D9A57;
     --opposite: #576D9A;
@@ -19,6 +20,16 @@
     background-position: 50% 50%;
 }
 
+a {
+    color: var(--primary);
+}
+a:hover {
+    color: var(--analog1);
+}
+a:active {
+    color: var(--analog2);
+}
+
 .slide-wrapper {
     height: 100%;
 }
@@ -27,6 +38,7 @@
     color: #FFFFFF;
     text-align: center;
     background: var(--primary);
+    height: 400px;
 }
 
 .home-title {

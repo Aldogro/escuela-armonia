@@ -1,21 +1,26 @@
 import React from 'react'
 import './CourseCard.css';
-import { FacebookFilled, InstagramFilled, WhatsAppOutlined } from '@ant-design/icons'
+import { WhatsappContact, InstagramContact, FacebookContact } from 'components/SocialMediaContacts';
 
-const CourseCard = () => {
+const CourseCard = ({ title, startAt, facilitator, contactInfo, description }) => {
     return (
         <div className="course-card-wrapper">
             <div className="course-text">
                 <div className="header">Próximos Cursos</div>
-                <div className="title">Numerologia, Geometria Sagrada y Mandalas</div>
-                <div className="date">{new Date().toDateString()}</div>
-                <div className="description">lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</div>
-                <p className="facilitator">Beatriz Carlotto</p>
+                <div className="title">{title}</div>
+                <div className="date">
+                    {startAt
+                        ? `Comienza: ${startAt.toLocaleDateString()}`
+                        : 'Próximamente'
+                    }
+                </div>
+                <div className="description">{description}</div>
+                <p className="facilitator">{facilitator}</p>
             </div>
             <div className="course-contact-info">
-                <WhatsAppOutlined />
-                <FacebookFilled />
-                <InstagramFilled />
+                {contactInfo.whatsapp && <WhatsappContact />}
+                {contactInfo.instagram && <InstagramContact />}
+                {contactInfo.facebook && <FacebookContact />}
             </div>
         </div>
     )
