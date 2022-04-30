@@ -1,0 +1,15 @@
+.error-button {
+    cursor: pointer;
+    width: 200px;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    color: var(--primary);
+    transition: 0.3s;
+}
+.error-button:hover {
+    background-color: var(--primary);
+    color: white;
+}

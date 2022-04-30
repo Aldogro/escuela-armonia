@@ -4,6 +4,7 @@ import { routes } from 'routes/routes'
 
 import NavWrapper from 'components/NavWrapper'
 import ComingSoon from 'components/ComingSoon'
+import Page404 from 'pages/Page404'
 import Home from 'pages/Home'
 import AboutUs from 'pages/AboutUs'
 
@@ -16,6 +17,7 @@ const App = () => {
         <Route path={routes.ABOUT_US} element={<AboutUs title="Nosotras" />} />
         <Route path={routes.ADMIN} element={<ComingSoon title="Admin" />} />
         <Route path={routes.HOME} element={<Home />} />
+        <Route path="*" element={<Page404 />} />
       </Routes>
     </NavWrapper>
   )

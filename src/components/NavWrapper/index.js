@@ -7,6 +7,7 @@ import CustomDrawer from '../CustomDrawer'
 import logoHorizontal from 'assets/images/logo-horizontal.svg'
 
 import './NavWrapper.css'
+import CustomErrorBoundary from 'components/ErrorBoundary'
 
 const { Header, Content, Footer } = Layout
 
@@ -30,9 +31,9 @@ const NavWrapper = ({ children }) => {
             </div>
           </Header>
           <Content className="site-layout-background layout-content">
-            <div>
+            <CustomErrorBoundary>
               {children}
-            </div>
+            </CustomErrorBoundary>
           </Content>
           <Footer className="layout-footer">
             Escuela Armonía ©{new Date().getFullYear()}

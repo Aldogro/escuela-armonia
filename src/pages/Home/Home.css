@@ -30,6 +30,10 @@ a:active {
     color: var(--analog2);
 }
 
+.ant-btn-default:hover {
+    color: var(--primary) !important;
+}
+
 .slide-wrapper {
     height: 100%;
 }
