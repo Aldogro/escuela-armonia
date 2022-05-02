@@ -30,6 +30,23 @@ a:active {
     color: var(--analog2);
 }
 
+.ant-btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+.ant-btn-primary:hover {
+    background-color: var(--analog1);
+    border-color: var(--analog1);
+}
+.ant-btn-primary:focus {
+    background-color: var(--analog2);
+    border-color: var(--analog2);
+}
+.ant-btn-primary:active {
+    background-color: var(--analog2);
+    border-color: var(--analog2);
+}
+
 .ant-btn-default:hover {
     color: var(--primary) !important;
 }

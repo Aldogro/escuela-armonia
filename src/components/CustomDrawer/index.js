@@ -2,13 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { routes } from 'routes/routes'
 
-import { Drawer } from 'antd'
+import { useAuth, useSigninCheck } from 'reactfire'
+
+import { Drawer, message } from 'antd'
 import {
   BulbOutlined,
   HomeOutlined,
   TeamOutlined,
   ReadOutlined,
-  LockOutlined,
+  LoginOutlined,
+  LogoutOutlined,
 } from '@ant-design/icons'
 import { FacebookContact, InstagramContact, WhatsappContact } from 'components/SocialMediaContacts'
 import logoHorizontal from 'assets/images/logo-horizontal.svg'
@@ -36,14 +39,20 @@ const menuItems = [
     icon: <TeamOutlined />,
     route: routes.ABOUT_US,
   },
-  {
-    title: 'Admin',
-    icon: <LockOutlined />,
-    route: routes.ADMIN,
-  }
 ]
 
+const signOut = async (auth) => {
+  try {
+    await auth.signOut()
+    message.success('¡Saliste correctamente!')
+  } catch (error) {
+    message.error('Hubo un error al intentar salir')
+  }
+};
+
 const CustomDrawer = ({ collapsed, toggleCollapsed}) => {
+  const auth = useAuth();
+  const { data } = useSigninCheck();
   return (
     <Drawer
       title={
@@ -58,7 +67,6 @@ const CustomDrawer = ({ collapsed, toggleCollapsed}) => {
       placement="left"
       onClose={toggleCollapsed}
       visible={collapsed}
-      width="100%"
       >
         {menuItems.map(menuItem => (
           <Link to={menuItem.route} key={menuItem.title} onClick={toggleCollapsed}>
@@ -68,6 +76,24 @@ const CustomDrawer = ({ collapsed, toggleCollapsed}) => {
             </div>
           </Link>
         ))}
+
+        {data && data.signedIn
+          ?
+          <div className="menu-item" onClick={() => {
+              signOut(auth)
+              toggleCollapsed()
+            }}>
+            <LogoutOutlined />
+            Salir
+          </div>
+          : 
+          <Link to={routes.ADMIN} onClick={toggleCollapsed}>
+            <div className="menu-item">
+              <LoginOutlined />
+              Admin
+            </div>
+          </Link>
+        }
         <div className="social-media">
           <FacebookContact />
           <InstagramContact />

@@ -36,7 +36,7 @@ const NavWrapper = ({ children }) => {
             </CustomErrorBoundary>
           </Content>
           <Footer className="layout-footer">
-            Escuela Armonía ©{new Date().getFullYear()}
+            <label className="copyright">Escuela Armonía ©{new Date().getFullYear()}</label>
             <div className="social-media">
               <FacebookContact />
               <InstagramContact />

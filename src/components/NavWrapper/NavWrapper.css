@@ -89,4 +89,15 @@
   .ant-layout-header b {
     display: none;
   }
+
+  .layout-footer {
+    padding: 10px 76px;
+  }
+  .layout-footer .copyright {
+    display: none;
+  }
+  .layout-footer .social-media {
+    margin-top: 0px;
+    justify-content: space-between;
+  }
 }
