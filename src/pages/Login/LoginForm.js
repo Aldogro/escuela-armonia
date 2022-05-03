@@ -3,9 +3,9 @@ import { Button, Card, Form, Input } from 'antd'
 
 import './LoginForm.css'
 
-const LoginForm = ({ onSubmit, auth }) => {
+const LoginForm = ({ onSubmit }) => {
   const handleOnSubmit = ({ email, password }) => {
-    onSubmit(auth, email, password)
+    onSubmit(email, password)
   }
 
   return (
