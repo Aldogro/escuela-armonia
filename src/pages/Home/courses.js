@@ -12,8 +12,8 @@ export const courses = [
         ),
     },
     {
-        title: 'Numerología, Geometría Sagrada y Mandalas',
-        startAt: undefined,
+        title: 'Numerología, Geometría Sagrada y Mandalas Personales',
+        startAt: new Date('05/18/2022'),
         facilitator: 'Beatriz Carlotto',
         contactInfo: {
             whatsapp: true,

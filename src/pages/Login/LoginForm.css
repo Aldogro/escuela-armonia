@@ -2,11 +2,6 @@
     width: 50%;
     margin: auto;
     margin-top: 75px;
-    box-shadow: none;
-    border-left: 1px solid #f0f0f0;
-}
-.login-form:hover {
-    box-shadow: none;
 }
 .login-form .ant-btn-primary {
     width: 100%;

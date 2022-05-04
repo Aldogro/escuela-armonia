@@ -68,7 +68,7 @@ const Home = () => {
                 <h3 className="home-title">Algunas de las Terapias Complementarias que se dictan en nuestra Escuela</h3>
                 <div className="home-text">
                     {therapies.map((therapy) => (
-                        <Card key={therapy.title}>
+                        <Card className="card-therapy" key={therapy.title}>
                             <Meta
                                 avatar={<img src={therapy.image} alt={therapy.title} height="50" />}
                                 title={therapy.title}

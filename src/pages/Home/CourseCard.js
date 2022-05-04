@@ -1,6 +1,7 @@
 import React from 'react'
-import './CourseCard.css';
-import { WhatsappContact, InstagramContact, FacebookContact } from 'components/SocialMediaContacts';
+import { WhatsappContact, InstagramContact, FacebookContact } from 'components/SocialMediaContacts'
+import format from 'date-fns/format'
+import './CourseCard.css'
 
 const CourseCard = ({ title, startAt, facilitator, contactInfo, description }) => {
     return (
@@ -10,7 +11,7 @@ const CourseCard = ({ title, startAt, facilitator, contactInfo, description }) =
                 <div className="title">{title}</div>
                 <div className="date">
                     {startAt
-                        ? `Comienza: ${startAt.toLocaleDateString()}`
+                        ? `Comienza: ${format(startAt, 'dd/MM/yyyy')}`
                         : 'Próximamente'
                     }
                 </div>

@@ -1,6 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600&display=swap');
 @import 'antd/dist/antd.min.css';
 
+:root {
+  --primary: #579A62;
+  --analog1: #74B07E;
+  --analog1-50p: #73b07d80;
+  --analog2: #579A84;
+  --analog3: #6D9A57;
+  --opposite: #576D9A;
+  --complementary: #9A578F;
+  --danger: #850000;
+  --extra: #9A8457;
+  --gray: #CCCCCC;
+}
+
 body {
   font-family: Fredoka, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -9,4 +22,63 @@ body {
 
 .ant-layout {
   background: #FFFAE5;
+}
+
+.blur-backdrop {
+  backdrop-filter: blur(15px);
+  height: 100%;
+}
+
+a {
+  color: var(--primary);
+}
+a:hover {
+  color: var(--analog1);
+}
+a:active {
+  color: var(--analog2);
+}
+
+.ant-btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+.ant-btn-primary:hover {
+  background-color: var(--analog1);
+  border-color: var(--analog1);
+}
+.ant-btn-primary:focus {
+  background-color: var(--analog2);
+  border-color: var(--analog2);
+}
+.ant-btn-primary:active {
+  background-color: var(--analog2);
+  border-color: var(--analog2);
+}
+
+.ant-card {
+  border-radius: 20px;
+  margin: 10px 0px;
+}
+.ant-card.card-therapy {
+  border-left: 7px solid var(--primary);
+}
+
+.ant-card-meta {
+  display: flex;
+  align-items: center;
+}
+
+.ant-card-meta-description {
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .ant-card-meta {
+      flex-direction: column;
+      text-align: center;
+  }
+  .ant-card-meta-avatar {
+      padding: 0px;
+  }
 }

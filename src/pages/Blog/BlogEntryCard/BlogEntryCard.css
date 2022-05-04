@@ -1,0 +1,7 @@
+.blog-action {
+    color: var(--primary) !important;
+}
+
+.blog-action--delete {
+    color: var(--danger) !important;
+}

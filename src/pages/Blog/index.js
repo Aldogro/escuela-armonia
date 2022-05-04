@@ -4,11 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import { useFirestore, useFirestoreCollectionData, useSigninCheck } from 'reactfire'
 import { collection, query, orderBy } from 'firebase/firestore'
 
-import format from 'date-fns/format'
-
 import { Button, Card } from 'antd'
 import { ReadOutlined } from '@ant-design/icons'
 import Breadcrumbs from 'components/Breadcrumbs'
+import BlogEntryCard from './BlogEntryCard'
 import './Blog.css'
 
 const breadcrumbs = [
@@ -47,20 +46,7 @@ const BlogPage = () => {
                 </Button>}
                 {data && data.length > 0 ?
                     data.map(item => (
-                        <Card className="blog-card" title={
-                                <div>
-                                    <div className="blog-title">
-                                        {item.title}
-                                    </div>
-                                    <div className="blog-date">
-                                        {format(new Date(item.date), 'dd/MM/yyyy')}
-                                    </div>
-                                </div>
-                            }
-                            key={item.id}
-                        >
-                            <div className="blog-content">{item.content}</div>
-                        </Card>
+                        <BlogEntryCard item={item} isAdmin={user && user.signedIn} key={item.id} />
                     ))
                     : <Card loading={status === 'loading'} />
                 }

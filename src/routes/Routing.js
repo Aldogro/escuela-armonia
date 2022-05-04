@@ -4,13 +4,13 @@ import { Routes, Route } from 'react-router-dom'
 import { routes } from 'routes/routes'
 import ProtectedRoute from 'routes/ProtectedRoute'
 
-import AboutUs from 'pages/AboutUs'
-import AddBlogEntry from 'pages/Blog/AddBlogEntry'
-import Blog from 'pages/Blog'
-import ComingSoon from 'components/ComingSoon'
-import Home from 'pages/Home'
-import LoginPage from 'pages/Login'
-import Page404 from 'pages/Page404'
+const AboutUs = React.lazy(() => import('pages/AboutUs'))
+const AddBlogEntry = React.lazy(() => import('pages/Blog/AddBlogEntry'))
+const Blog = React.lazy(() => import('pages/Blog'))
+const ComingSoon = React.lazy(() => import('components/ComingSoon'))
+const Home = React.lazy(() => import('pages/Home'))
+const LoginPage = React.lazy(() => import('pages/Login'))
+const Page404 = React.lazy(() => import('pages/Page404'))
 
 const Routing = () => {
     const { data: user } = useSigninCheck()

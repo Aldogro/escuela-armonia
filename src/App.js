@@ -17,7 +17,9 @@ const App = () => {
     <AuthProvider sdk={auth}>
       <FirestoreProvider sdk={firestoreInstance}>
         <NavWrapper>
-          <Routing />
+          <React.Suspense fallback={<div>Loading</div>}>
+            <Routing />
+          </React.Suspense>
         </NavWrapper>
       </FirestoreProvider>
     </AuthProvider>
