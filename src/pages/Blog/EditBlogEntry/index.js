@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
-import { useFirestore, useFirestoreDocDataOnce } from 'reactfire'
+import { useFirestore, useFirestoreDocData} from 'reactfire'
 import { setDoc, doc } from 'firebase/firestore'
 
 import { ReadOutlined } from '@ant-design/icons'
@@ -30,7 +30,7 @@ const EditBlogEntry = () => {
     const firestore = useFirestore()
 
     const ref = doc(firestore, COLLECTIONS.BLOG, id)
-    const { data } = useFirestoreDocDataOnce(ref)
+    const { data } = useFirestoreDocData(ref)
 
     const editBlogEntry = async (data) => {
         try {
