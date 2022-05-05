@@ -1,11 +1,37 @@
 import React from 'react'
-import { Card } from 'antd'
-import { DeleteOutlined, EditOutlined, EyeOutlined } from '@ant-design/icons'
+import { useNavigate } from 'react-router-dom'
+import { Card, message, Popconfirm } from 'antd'
+import { DeleteOutlined, EditOutlined, EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons'
 
+import { useFirestore } from 'reactfire'
+import { deleteDoc, doc } from 'firebase/firestore'
+
+import { COLLECTIONS } from 'utils/constants'
 import format from 'date-fns/format'
 import './BlogEntryCard.css'
 
 const BlogEntryCard = ({ item, isAdmin }) => {
+    const [loading, setLoading] = React.useState(false) 
+    const navigate = useNavigate()
+
+    const editBlogEntry = () => {
+        navigate(`/blog/${item.id}/edit`)
+    }
+    const firestore = useFirestore()
+    const ref = doc(firestore, COLLECTIONS.BLOG, item.id)
+
+    const deleteBlogEntry = () => {
+        try {
+            setLoading(true)
+            deleteDoc(ref)
+            message.success('Entrada de blog eliminada con éxito')
+        } catch (error) {
+            message.error('Hubo un error al intentar eliminar la entrada de blog')
+        } finally {
+            setLoading(false)
+        }
+    }
+
     return (
         <Card
             className="blog-card"
@@ -25,13 +51,27 @@ const BlogEntryCard = ({ item, isAdmin }) => {
             actions={
                 isAdmin &&
                 [
-                    <EyeOutlined key="view" className="blog-action" />,
-                    <EditOutlined key="edit" className="blog-action" />,
-                    <DeleteOutlined key="delete" className="blog-action blog-action--delete" />,
+                    item.publish
+                        ? <EyeOutlined key="view" className="blog-action--publish" />
+                        : <EyeInvisibleOutlined key="unpublished" className="blog-action--publish" />,
+                    <EditOutlined
+                        key="edit"
+                        className="blog-action"
+                        onClick={editBlogEntry}
+                    />,
+                    <Popconfirm
+                        title="¿Borrar entrada del blog?"
+                        cancelText="Cancelar"
+                        okText="Borrar"
+                        onConfirm={deleteBlogEntry}
+                        okButtonProps={{ loading }}
+                    >
+                        <DeleteOutlined key="delete" className="blog-action blog-action--delete" />
+                    </Popconfirm>
                 ]
             }
         >
-            <div className="blog-content">{item.content}</div>
+            <div className="blog-content" dangerouslySetInnerHTML={{__html: item.content}} />
         </Card>
     )
 }

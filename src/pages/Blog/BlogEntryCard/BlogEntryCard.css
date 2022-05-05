@@ -5,3 +5,7 @@
 .blog-action--delete {
     color: var(--danger) !important;
 }
+
+.blog-action--publish {
+    color: var(--warning) !important;
+}

@@ -6,6 +6,7 @@ import ProtectedRoute from 'routes/ProtectedRoute'
 
 const AboutUs = React.lazy(() => import('pages/AboutUs'))
 const AddBlogEntry = React.lazy(() => import('pages/Blog/AddBlogEntry'))
+const EditBlogEntry = React.lazy(() => import('pages/Blog/EditBlogEntry'))
 const Blog = React.lazy(() => import('pages/Blog'))
 const ComingSoon = React.lazy(() => import('components/ComingSoon'))
 const Home = React.lazy(() => import('pages/Home'))
@@ -19,10 +20,17 @@ const Routing = () => {
         <Routes>
             <Route path={routes.CURSOS} element={<ComingSoon title="Cursos"/>} />
             <Route path={routes.ADD_BLOG_ENTRY} element={
-              <ProtectedRoute user={user && user.signedIn}>
-                <AddBlogEntry />
-              </ProtectedRoute>
-            } />
+                <ProtectedRoute user={user && user.signedIn}>
+                  <AddBlogEntry />
+                </ProtectedRoute>
+              }
+            />
+            <Route path={routes.EDIT_BLOG_ENTRY} element={
+                <ProtectedRoute user={user && user.signedIn}>
+                  <EditBlogEntry />
+                </ProtectedRoute>
+              }
+            />
             <Route path={routes.BLOG} element={<Blog />} />
             <Route path={routes.ABOUT_US} element={<AboutUs title="Nosotras" />} />
             <Route path={routes.ADMIN} element={<LoginPage title="Admin" />} />

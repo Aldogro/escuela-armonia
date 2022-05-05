@@ -1,7 +1,19 @@
 .blog-form .ant-form-item-control-input-content {
-    display: grid;
+    /* display: grid;
     grid-auto-flow: column;
-    gap: 35px;
+    gap: 35px; */
+}
+
+.blog-form .wrapperClassName {
+    border: 1px solid #f0f0f0;
+}
+
+.blog-form .toolbarClassName {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.blog-form .DraftEditor-root {
+    padding: 0px 20px;
 }
 
 .blog-card .blog-title {
@@ -17,4 +29,10 @@
 }
 .blog-card .blog-content {
     font-size: 1rem;
+}
+
+.blog-form .blog-form-buttons .ant-form-item-control-input-content {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 35px;
 }

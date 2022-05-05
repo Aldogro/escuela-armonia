@@ -9,7 +9,8 @@
   --analog3: #6D9A57;
   --opposite: #576D9A;
   --complementary: #9A578F;
-  --danger: #850000;
+  --danger: #ff6347;
+  --warning: #daa520;
   --extra: #9A8457;
   --gray: #CCCCCC;
 }
@@ -54,6 +55,10 @@ a:active {
 .ant-btn-primary:active {
   background-color: var(--analog2);
   border-color: var(--analog2);
+}
+
+.ant-switch-checked {
+  background-color: var(--primary);
 }
 
 .ant-card {

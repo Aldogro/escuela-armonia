@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { useFirestore, useFirestoreCollectionData, useSigninCheck } from 'reactfire'
-import { collection, query, orderBy } from 'firebase/firestore'
+import { collection, query, orderBy, where } from 'firebase/firestore'
 
 import { Button, Card } from 'antd'
 import { ReadOutlined } from '@ant-design/icons'
@@ -24,13 +24,16 @@ const BlogPage = () => {
     const firestore = useFirestore()
     const blogCollection = collection(firestore, 'blog')
 
-    const blogQuery = query(blogCollection, orderBy('date', 'desc'));
+    const blogQuery = user && user.signedIn
+        ? query(blogCollection, orderBy('date', 'desc'))
+        : query(blogCollection, orderBy('date', 'desc'), where('publish', '==', 'true'))
     const { status, data } = useFirestoreCollectionData(blogQuery, {
         idField: 'id',
     });
 
-    // const ref = doc(firestore, 'animals', 'BstAq5kCb0L5WYCeiLk6');
-    // const p = useFirestoreDocDataOnce(ref)
+    const canDisplay = (item) => {
+        return item.publish || user.signedIn
+    }
 
     return (
         <div>
@@ -45,10 +48,10 @@ const BlogPage = () => {
                     Agregar nota
                 </Button>}
                 {data && data.length > 0 ?
-                    data.map(item => (
-                        <BlogEntryCard item={item} isAdmin={user && user.signedIn} key={item.id} />
+                    data.map(item => (canDisplay(item)
+                        && <BlogEntryCard item={item} isAdmin={user && user.signedIn} key={item.id} />
                     ))
-                    : <Card loading={status === 'loading'} />
+                    : <Card loading={status === 'loading'}>No hay entradas en el blog</Card>
                 }
             </div>
         </div>
