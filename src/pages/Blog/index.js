@@ -26,14 +26,10 @@ const BlogPage = () => {
 
     const blogQuery = user && user.signedIn
         ? query(blogCollection, orderBy('date', 'desc'))
-        : query(blogCollection, orderBy('date', 'desc'), where('publish', '==', 'true'))
+        : query(blogCollection, orderBy('date', 'desc'), where('publish', '==', true))
     const { status, data } = useFirestoreCollectionData(blogQuery, {
         idField: 'id',
     });
-
-    const canDisplay = (item) => {
-        return item.publish || user.signedIn
-    }
 
     return (
         <div>
@@ -48,8 +44,8 @@ const BlogPage = () => {
                     Agregar nota
                 </Button>}
                 {data && data.length > 0 ?
-                    data.map(item => (canDisplay(item)
-                        && <BlogEntryCard item={item} isAdmin={user && user.signedIn} key={item.id} />
+                    data.map(item => (
+                        <BlogEntryCard item={item} isAdmin={user && user.signedIn} key={item.id} />
                     ))
                     : <Card loading={status === 'loading'}>No hay entradas en el blog</Card>
                 }
