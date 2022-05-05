@@ -1,7 +1,5 @@
-.blog-form .ant-form-item-control-input-content {
-    /* display: grid;
-    grid-auto-flow: column;
-    gap: 35px; */
+.blog-form .ant-form-item-has-error :not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
+    border: none;
 }
 
 .blog-form .wrapperClassName {
@@ -10,6 +8,10 @@
 
 .blog-form .toolbarClassName {
     border-bottom: 1px solid #f0f0f0;
+}
+
+.blog-form .ant-row.ant-form-item.ant-form-item-with-help.ant-form-item-has-error .ant-form-item-control-input {
+    border: 1px solid red;
 }
 
 .blog-form .DraftEditor-root {
@@ -32,6 +34,7 @@
 }
 
 .blog-form .blog-form-buttons .ant-form-item-control-input-content {
+    margin-top: 35px;
     display: grid;
     grid-auto-flow: column;
     gap: 35px;

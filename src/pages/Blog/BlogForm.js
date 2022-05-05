@@ -15,9 +15,23 @@ const textEditorOptions = {
     link: { options: ['link'] },
 }
 
+const validateContent = (hasContent) => {
+    if (!hasContent) {
+        return {
+            validateStatus: 'error',
+            errorMsg: 'El contenido es necesario para crear una entrada de blog',
+        }
+    }
+    return {
+        validateStatus: 'success',
+        errorMsg: null,
+    }
+}
+
 const BlogForm = ({ blogEntry, onSubmit, loading, goBack }) => {
     const [form] = Form.useForm() 
     const [editorState, setEditorState] = React.useState(EditorState.createEmpty() || {})
+    const [contentStatus, setContentStatus] = React.useState({});
 
     React.useEffect(() => {
         if (blogEntry) {
@@ -39,7 +53,9 @@ const BlogForm = ({ blogEntry, onSubmit, loading, goBack }) => {
     }, [blogEntry])
 
     React.useEffect(() => {
-        form.setFieldsValue({ content: draftToHtml(convertToRaw(editorState.getCurrentContent()))})
+        const content = draftToHtml(convertToRaw(editorState.getCurrentContent()))
+        form.setFieldsValue({ content })
+        setContentStatus(validateContent(editorState.getCurrentContent().hasText()))
     }, [editorState, form])
 
     const handleOnSubmit = ({ title, content, publish }) => {
@@ -77,7 +93,11 @@ const BlogForm = ({ blogEntry, onSubmit, loading, goBack }) => {
                 <Form.Item label="Contenido" name="content" style={{ display: 'none' }}>
                     <Input.TextArea />
                 </Form.Item>
-                <Form.Item label="Contenido">
+                <Form.Item
+                    label="Contenido"
+                    validateStatus={contentStatus.validateStatus}
+                    help={contentStatus.errorMsg}
+                >
                     <Editor
                         editorState={editorState}
                         toolbarClassName="toolbarClassName"
