@@ -11,11 +11,11 @@ const CourseCard = ({ title, startAt, facilitator, contactInfo, content }) => {
                 <div className="title">{title}</div>
                 <div className="date">
                     {startAt
-                        ? `Comienza: ${format(startAt, 'dd/MM/yyyy')}`
+                        ? `Comienza: ${format(new Date(startAt), 'dd/MM/yyyy')}`
                         : 'Próximamente'
                     }
                 </div>
-                <div className="content">{content}</div>
+                <div className="content" dangerouslySetInnerHTML={{ __html: content }}/>
                 <p className="facilitator">{facilitator}</p>
             </div>
             <div className="course-contact-info">

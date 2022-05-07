@@ -1,13 +1,16 @@
 import React from 'react'
 
+import { useFirestore, useFirestoreCollectionData } from 'reactfire'
+import { collection, query, orderBy, where } from 'firebase/firestore'
+
 import { Card, Carousel } from 'antd'
 import { HomeOutlined } from '@ant-design/icons'
 
 import CarouselSlide from './CarouselSlide'
 import CourseCard from './CourseCard'
 import Breadcrumbs from 'components/Breadcrumbs'
+import { COLLECTIONS } from 'utils/constants'
 import { therapies } from './therapies'
-import { courses } from './courses' 
 import './Home.css'
 
 const { Meta } = Card
@@ -21,10 +24,24 @@ const breadcrumbs = [
 ]
 
 const Home = () => {
+    const firestore = useFirestore()
+    const coursesCollection = collection(firestore, COLLECTIONS.COURSES)
+
+    const coursesQuery = query(
+        coursesCollection,
+        orderBy('startAt', 'desc'),
+        where('publish', '==', true),
+        where('onHomeBanner', '==', true)
+    )
+
+    const { data } = useFirestoreCollectionData(coursesQuery, {
+        idField: 'id',
+    })
+
     return (
         <div>
             <Carousel>
-                {courses.map(({ title, startAt, facilitator, contactInfo, content }) => (
+                {data && data.length > 0 && data.map(({ title, startAt, facilitator, contactInfo, content }) => (
                     <CarouselSlide key={title}>
                         <CourseCard
                             title={title}
