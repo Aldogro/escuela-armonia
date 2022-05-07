@@ -4,7 +4,7 @@ export const courses = [
         startAt: new Date('05/09/2022'),
         facilitator: 'Beatriz Carlotto - Reiki Master',
         contactInfo: { whatsapp: true },
-        description: (
+        content: (
             <>
                 <p>Primero y Segundo Nivel</p>
                 <i>Todos los días lunes por whatsapp</i>
@@ -20,7 +20,7 @@ export const courses = [
             facebook: true,
             instagram: true,
         },
-        description: (
+        content: (
             <>
                 <p>En este curso aprenderás a realizar los Mandalas del Alma, del Karma, de la Personalidad, de la Misión y del Destino.</p>
                 <p>Se realizan con el estudio analítico del Código Numérico y pasados estos Códigos a la Geometría Sagrada.</p>

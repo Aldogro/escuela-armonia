@@ -5,8 +5,8 @@ import BlogForm from '../BlogForm'
 import { useFirestore } from 'reactfire'
 import { collection, addDoc } from 'firebase/firestore'
 import { message } from 'antd'
-
 import { ReadOutlined } from '@ant-design/icons'
+
 import Breadcrumbs from 'components/Breadcrumbs'
 import { COLLECTIONS } from 'utils/constants'
 
@@ -46,7 +46,11 @@ const AddBlogEntry = () => {
         <div>
             <Breadcrumbs items={breadcrumbs} />
             <div className="layout-content--wrapper">
-                <BlogForm onSubmit={addBlogEntry} loading={loading} goBack={() => navigate('/blog')}/>
+                <BlogForm
+                    onSubmit={addBlogEntry}
+                    loading={loading}
+                    goBack={() => navigate('/blog')}
+                />
             </div>
         </div>
     )

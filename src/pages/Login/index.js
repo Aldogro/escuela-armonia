@@ -8,9 +8,9 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import LoginForm from './LoginForm'
 
 const LoginPage = () => {
-  const auth = useAuth();
+  const auth = useAuth()
   const { data } = useSigninCheck()
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
   const onSignIn = async (email, password) => {
     try {

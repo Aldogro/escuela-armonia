@@ -10,7 +10,7 @@ import { therapies } from './therapies'
 import { courses } from './courses' 
 import './Home.css'
 
-const { Meta } = Card;
+const { Meta } = Card
 
 const breadcrumbs = [
     {
@@ -24,14 +24,14 @@ const Home = () => {
     return (
         <div>
             <Carousel>
-                {courses.map(({ title, startAt, facilitator, contactInfo, description }) => (
+                {courses.map(({ title, startAt, facilitator, contactInfo, content }) => (
                     <CarouselSlide key={title}>
                         <CourseCard
                             title={title}
                             startAt={startAt}
                             facilitator={facilitator}
                             contactInfo={contactInfo}
-                            description={description}
+                            content={content}
                         />
                     </CarouselSlide>    
                 ))}

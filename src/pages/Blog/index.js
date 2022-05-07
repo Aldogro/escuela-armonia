@@ -8,28 +8,29 @@ import { Button, Card } from 'antd'
 import { ReadOutlined } from '@ant-design/icons'
 import Breadcrumbs from 'components/Breadcrumbs'
 import BlogEntryCard from './BlogEntryCard'
+import { COLLECTIONS } from 'utils/constants'
 import './Blog.css'
 
 const breadcrumbs = [
     {
         route: '/blog',
         icon: <ReadOutlined />,
-        content: 'Blog'
-    }
+        content: 'Blog',
+    },
 ]
 
 const BlogPage = () => {
-    const { data: user } = useSigninCheck();
+    const { data: user } = useSigninCheck()
     const navigate = useNavigate()
     const firestore = useFirestore()
-    const blogCollection = collection(firestore, 'blog')
+    const blogCollection = collection(firestore, COLLECTIONS.BLOG)
 
     const blogQuery = user && user.signedIn
         ? query(blogCollection, orderBy('date', 'desc'))
         : query(blogCollection, orderBy('date', 'desc'), where('publish', '==', true))
     const { status, data } = useFirestoreCollectionData(blogQuery, {
         idField: 'id',
-    });
+    })
 
     return (
         <div>

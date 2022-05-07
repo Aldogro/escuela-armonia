@@ -28,7 +28,7 @@
     font-size: 1.5rem;
     color: var(--complementary);
 }
-.course-card-wrapper .course-text .description {
+.course-card-wrapper .course-text .content {
     font-size: 1.3rem;
     text-align: center;
     height: 73px;
@@ -37,7 +37,7 @@
     -webkit-box-orient: vertical;  
     overflow: hidden;
 }
-.course-text .description p {
+.course-text .content p {
     margin-bottom: 0px;
 }
 
@@ -96,7 +96,7 @@
         color: var(--complementary);
         font-weight: 600;
     }
-    .course-card-wrapper .course-text .description {
+    .course-card-wrapper .course-text .content {
         font-size: 1rem;
         text-align: center;
         height: 73px;

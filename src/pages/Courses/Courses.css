@@ -1,0 +1,60 @@
+.course-form .ant-form-item-has-error :not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
+    border: none;
+}
+
+.course-form .wrapperClassName {
+    border: 1px solid #f0f0f0;
+}
+
+.course-form .toolbarClassName {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.course-form .ant-row.ant-form-item.ant-form-item-with-help.ant-form-item-has-error .ant-form-item-control-input {
+    border: 1px solid red;
+}
+
+.course-form .DraftEditor-root {
+    padding: 0px 20px;
+}
+
+.course-form .blog-form-buttons .ant-form-item-control-input-content {
+    margin-top: 35px;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 35px;
+}
+
+.courses .ant-card {
+    box-shadow: 0px 0px 20px var(--gray);
+}
+
+.ant-card-head {
+    background-color: var(--analog1-50p);
+    border: 2px solid var(--primary);
+    border-radius: 20px 20px 0px 0px;
+}
+
+.ant-card-head-title {
+    white-space: inherit;
+}
+
+.courses-card-date {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+.courses-card-content {
+    padding: 20px;
+}
+
+.courses-contact-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.courses-contact-info a {
+    font-size: 40px;
+}

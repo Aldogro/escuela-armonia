@@ -3,7 +3,7 @@ import { WhatsappContact, InstagramContact, FacebookContact } from 'components/S
 import format from 'date-fns/format'
 import './CourseCard.css'
 
-const CourseCard = ({ title, startAt, facilitator, contactInfo, description }) => {
+const CourseCard = ({ title, startAt, facilitator, contactInfo, content }) => {
     return (
         <div className="course-card-wrapper">
             <div className="course-text">
@@ -15,7 +15,7 @@ const CourseCard = ({ title, startAt, facilitator, contactInfo, description }) =
                         : 'Próximamente'
                     }
                 </div>
-                <div className="description">{description}</div>
+                <div className="content">{content}</div>
                 <p className="facilitator">{facilitator}</p>
             </div>
             <div className="course-contact-info">

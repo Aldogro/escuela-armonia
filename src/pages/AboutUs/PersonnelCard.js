@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Avatar } from 'antd'
 import './AboutUs.css'
 
-const { Meta } = Card;
+const { Meta } = Card
 
 const PersonnelCard = ({ name, description, picture }) => {
     return (

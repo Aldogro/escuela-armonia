@@ -1,19 +1,12 @@
 import React from 'react'
 import { Button, Card, Form, Input, Switch } from 'antd'
-import { Editor } from "react-draft-wysiwyg"
+import { Editor } from 'react-draft-wysiwyg'
 import { EditorState, ContentState, convertToRaw } from 'draft-js'
 import draftToHtml from 'draftjs-to-html'
 import htmlToDraft from 'html-to-draftjs'
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css"
+import { textEditorOptions } from 'utils/constants'
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import './Blog.css'
-
-const textEditorOptions = {
-    options: ['inline', 'blockType', 'fontSize', 'list', 'textAlign', 'link', 'emoji', 'history'],
-    inline: { options: ['bold', 'italic', 'underline'] },
-    list: { options: ['unordered', 'ordered'] },
-    textAlign: { options: ['left', 'center', 'right', 'justify'] },
-    link: { options: ['link'] },
-}
 
 const validateContent = (hasContent) => {
     if (!hasContent) {
@@ -31,7 +24,7 @@ const validateContent = (hasContent) => {
 const BlogForm = ({ blogEntry, onSubmit, loading, goBack }) => {
     const [form] = Form.useForm() 
     const [editorState, setEditorState] = React.useState(EditorState.createEmpty() || {})
-    const [contentStatus, setContentStatus] = React.useState({});
+    const [contentStatus, setContentStatus] = React.useState({})
 
     React.useEffect(() => {
         if (blogEntry) {
@@ -42,10 +35,10 @@ const BlogForm = ({ blogEntry, onSubmit, loading, goBack }) => {
                 content,
             })
 
-            const contentBlock = htmlToDraft(content);
+            const contentBlock = htmlToDraft(content)
             if (contentBlock) {
-                const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
-                const _editorState = EditorState.createWithContent(contentState);
+                const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks)
+                const _editorState = EditorState.createWithContent(contentState)
                 setEditorState(_editorState)
             }
         }

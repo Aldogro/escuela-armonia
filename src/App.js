@@ -10,8 +10,8 @@ import LoadingFallback from 'components/LoadingFallback'
 import Routing from 'routes/Routing'
 
 const App = () => {
-  const firebaseApp = useFirebaseApp();
-  const firestoreInstance = getFirestore(useFirebaseApp());
+  const firebaseApp = useFirebaseApp()
+  const firestoreInstance = getFirestore(useFirebaseApp())
   const auth = getAuth(firebaseApp)
 
   return (

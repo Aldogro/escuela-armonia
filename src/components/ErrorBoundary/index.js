@@ -1,5 +1,5 @@
 import React from 'react'
-import { Result } from 'antd';
+import { Result } from 'antd'
 import { ErrorBoundary } from 'react-error-boundary'
 import './ErrorBoundary.css'
 

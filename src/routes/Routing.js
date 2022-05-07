@@ -8,7 +8,8 @@ const AboutUs = React.lazy(() => import('pages/AboutUs'))
 const AddBlogEntry = React.lazy(() => import('pages/Blog/AddBlogEntry'))
 const EditBlogEntry = React.lazy(() => import('pages/Blog/EditBlogEntry'))
 const Blog = React.lazy(() => import('pages/Blog'))
-const ComingSoon = React.lazy(() => import('components/ComingSoon'))
+const Courses = React.lazy(() => import('pages/Courses'))
+const AddCourse = React.lazy(() => import('pages/Courses/AddCourse'))
 const Home = React.lazy(() => import('pages/Home'))
 const LoginPage = React.lazy(() => import('pages/Login'))
 const Page404 = React.lazy(() => import('pages/Page404'))
@@ -18,7 +19,12 @@ const Routing = () => {
 
     return (
         <Routes>
-            <Route path={routes.CURSOS} element={<ComingSoon title="Cursos"/>} />
+            <Route path={routes.COURSES} element={<Courses />} />
+            <Route path={routes.ADD_COURSE} element={
+              <ProtectedRoute user={user && user.signedIn}>
+                <AddCourse />
+              </ProtectedRoute>
+            } />
             <Route path={routes.ADD_BLOG_ENTRY} element={
                 <ProtectedRoute user={user && user.signedIn}>
                   <AddBlogEntry />

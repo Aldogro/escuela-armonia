@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+
 import { BrowserRouter } from 'react-router-dom'
+
 import { FirebaseAppProvider } from 'reactfire'
 import { firebaseConfig } from 'firebase.config'
 

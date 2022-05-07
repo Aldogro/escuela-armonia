@@ -1,5 +1,5 @@
 import { Breadcrumb } from 'antd'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 import './Breadcrumbs.css'
 
@@ -15,6 +15,6 @@ const Breadcrumbs = ({ items = [] }) => (
       ))}
     </Breadcrumb>
   </div>
-);
+)
 
 export default Breadcrumbs

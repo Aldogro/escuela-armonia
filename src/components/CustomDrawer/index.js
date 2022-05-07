@@ -27,7 +27,7 @@ const menuItems = [
   {
     title: 'Cursos',
     icon: <BulbOutlined />,
-    route: routes.CURSOS,
+    route: routes.COURSES,
   },
   {
     title: 'Blog',
@@ -48,11 +48,11 @@ const signOut = async (auth) => {
   } catch (error) {
     message.error('Hubo un error al intentar salir')
   }
-};
+}
 
 const CustomDrawer = ({ collapsed, toggleCollapsed}) => {
-  const auth = useAuth();
-  const { data } = useSigninCheck();
+  const auth = useAuth()
+  const { data } = useSigninCheck()
   return (
     <Drawer
       title={
