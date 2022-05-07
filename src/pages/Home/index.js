@@ -23,7 +23,6 @@ const breadcrumbs = [
 const Home = () => {
     return (
         <div>
-            <div className="home-banner"/>
             <Carousel>
                 {courses.map(({ title, startAt, facilitator, contactInfo, description }) => (
                     <CarouselSlide key={title}>

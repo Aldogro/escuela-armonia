@@ -21,6 +21,9 @@
     font-size: 2rem;
 }
 .course-card-wrapper .course-text .date {
+    background: var(--white-50p);
+    padding: 8px 30px;
+    border-radius: 34px;
     font-weight: 600;
     font-size: 1.5rem;
     color: var(--complementary);

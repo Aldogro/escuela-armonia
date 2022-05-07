@@ -1,13 +1,3 @@
-.home-banner {
-    height: 200px;
-    width: 100%;
-    background-image: url('assets/images/bamboo.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-}
-
 .slide-wrapper {
     height: 100%;
 }
@@ -16,7 +6,9 @@
     color: #FFFFFF;
     text-align: center;
     background: var(--primary);
-    background-image: url('assets/images/bamboo-bg.jpg');
+    background-image: url('assets/images/bamboo-bg-mobile.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 400px;
 }
 
@@ -31,6 +23,12 @@
 .home-text {
     margin: 60px 60px;
     font-size: 1.1rem;
+}
+
+@media (min-width: 600px) {
+    .carrousel-style {
+        background-image: url('assets/images/bamboo-bg-desktop.jpg');
+    }   
 }
 
 @media (max-width: 600px) {

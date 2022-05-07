@@ -13,6 +13,7 @@
   --warning: #daa520;
   --extra: #9A8457;
   --gray: #CCCCCC;
+  --white-50p: #FFFFFF80; 
 }
 
 body {
@@ -26,7 +27,7 @@ body {
 }
 
 .blur-backdrop {
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(8px);
   height: 100%;
 }
 
