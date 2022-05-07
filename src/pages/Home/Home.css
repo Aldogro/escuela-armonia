@@ -3,7 +3,7 @@
 }
 
 .carrousel-style {
-    color: #FFFFFF;
+    color: var(--white);
     text-align: center;
     background: var(--primary);
     background-image: url('assets/images/bamboo-bg-mobile.jpg');

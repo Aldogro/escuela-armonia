@@ -34,6 +34,8 @@
 }
 
 .layout-header--wrapper {
+  display: flex;
+  align-items: center;
   margin: 0px auto;
   width: 100%;
   max-width: 1200px;

@@ -5,6 +5,7 @@ import { getFirestore } from 'firebase/firestore'
 import { FirestoreProvider, AuthProvider, useFirebaseApp } from 'reactfire'
 
 import NavWrapper from 'components/NavWrapper'
+import LoadingFallback from 'components/LoadingFallback'
 
 import Routing from 'routes/Routing'
 
@@ -17,7 +18,7 @@ const App = () => {
     <AuthProvider sdk={auth}>
       <FirestoreProvider sdk={firestoreInstance}>
         <NavWrapper>
-          <React.Suspense fallback={<div>Loading</div>}>
+          <React.Suspense fallback={<LoadingFallback />}>
             <Routing />
           </React.Suspense>
         </NavWrapper>

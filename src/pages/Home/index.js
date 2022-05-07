@@ -69,7 +69,7 @@ const Home = () => {
                     {therapies.map((therapy) => (
                         <Card className="card-therapy" key={therapy.title}>
                             <Meta
-                                avatar={<img src={therapy.image} alt={therapy.title} height="50" />}
+                                avatar={therapy.image}
                                 title={therapy.title}
                                 description={therapy.description}
                             />

@@ -1,0 +1,17 @@
+.loading-fallback-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.loading-fallback-spinner {
+    font-size: 180px;
+    color: var(--primary);
+}
+
+.loading-fallback-img {
+    height: 100px;
+    position: absolute;
+}

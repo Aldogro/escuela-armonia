@@ -14,7 +14,7 @@ import {
   LogoutOutlined,
 } from '@ant-design/icons'
 import { FacebookContact, InstagramContact, WhatsappContact } from 'components/SocialMediaContacts'
-import logoHorizontal from 'assets/images/logo-horizontal.svg'
+import { ReactComponent as LogoHorizontal} from 'assets/images/logo-horizontal.svg'
 
 import './CustomDrawer.css'
 
@@ -57,11 +57,7 @@ const CustomDrawer = ({ collapsed, toggleCollapsed}) => {
     <Drawer
       title={
         <div className="logo">
-          <img
-            src={logoHorizontal}
-            height="65px"
-            alt="logo"
-          />
+          <LogoHorizontal height={50} />
         </div>
       }
       placement="left"

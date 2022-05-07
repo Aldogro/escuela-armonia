@@ -4,7 +4,7 @@ import { BackTop, Layout } from 'antd'
 import { MenuOutlined, UpOutlined } from '@ant-design/icons'
 import { FacebookContact, InstagramContact, WhatsappContact } from 'components/SocialMediaContacts'
 import CustomDrawer from '../CustomDrawer'
-import logoHorizontal from 'assets/images/logo-horizontal.svg'
+import { ReactComponent as LogoHorizontal} from 'assets/images/logo-horizontal.svg'
 
 import './NavWrapper.css'
 import CustomErrorBoundary from 'components/ErrorBoundary'
@@ -27,7 +27,7 @@ const NavWrapper = ({ children }) => {
                 className="trigger"
                 onClick={toggleCollapsed}
               />
-              <img src={logoHorizontal} height="50px" alt="logo" /><b>Terapias complementarias</b>
+              <LogoHorizontal height={50}/><b>Terapias complementarias</b>
             </div>
           </Header>
           <Content className="site-layout-background layout-content">
