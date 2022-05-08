@@ -2,7 +2,8 @@ import React from 'react'
 
 import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
-import { FirestoreProvider, AuthProvider, useFirebaseApp } from 'reactfire'
+import { getStorage} from 'firebase/storage'
+import { FirestoreProvider, AuthProvider, useFirebaseApp, StorageProvider } from 'reactfire'
 
 import NavWrapper from 'components/NavWrapper'
 import LoadingFallback from 'components/LoadingFallback'
@@ -16,13 +17,15 @@ const App = () => {
 
   return (
     <AuthProvider sdk={auth}>
-      <FirestoreProvider sdk={firestoreInstance}>
-        <NavWrapper>
-          <React.Suspense fallback={<LoadingFallback />}>
-            <Routing />
-          </React.Suspense>
-        </NavWrapper>
-      </FirestoreProvider>
+      <StorageProvider sdk={getStorage(firebaseApp)}>
+        <FirestoreProvider sdk={firestoreInstance}>
+          <NavWrapper>
+            <React.Suspense fallback={<LoadingFallback />}>
+              <Routing />
+            </React.Suspense>
+          </NavWrapper>
+        </FirestoreProvider>
+      </StorageProvider>
     </AuthProvider>
   )
 }

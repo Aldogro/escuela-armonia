@@ -1,11 +1,12 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { useFirestore } from 'reactfire'
+import { useFirestore, useStorage } from 'reactfire'
 import { deleteDoc, doc } from 'firebase/firestore'
+import { ref, getDownloadURL } from 'firebase/storage'
 
 import { Card, Avatar, Popconfirm, message } from 'antd'
-import { DeleteOutlined, EditOutlined, EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons'
+import { DeleteOutlined, EditOutlined, EyeOutlined, EyeInvisibleOutlined, TeamOutlined } from '@ant-design/icons'
 
 import { routes } from 'routes/routes'
 import { COLLECTIONS } from 'utils/constants'
@@ -15,21 +16,26 @@ import './AboutUs.css'
 const { Meta } = Card
 
 const PersonnelCard = ({ item, isAdmin = false }) => {
+    const storage = useStorage()
     const [loading, setLoading] = React.useState(false)
+    const [imageUrl, setImageUrl] = React.useState('')
     const navigate = useNavigate()
+
+    if (item.avatar) {
+        getDownloadURL(ref(storage, item.avatar)).then(url => setImageUrl(url))
+    }
 
     const editStaff = () => {
         navigate(`${routes.ABOUT_US}/${item.id}/edit`)
     }
 
     const firestore = useFirestore()
-    const ref = doc(firestore, COLLECTIONS.STAFF, item.id)
-    console.log(ref)
+    const docRef = doc(firestore, COLLECTIONS.STAFF, item.id)
 
     const deleteStaff = () => {
         try {
             setLoading(true)
-            deleteDoc(ref)
+            deleteDoc(docRef)
             message.success('Staff borrado correctamenete')
         } catch (error) {
             message.error('Hubo un error al intentar eliminar el Staff')
@@ -64,7 +70,7 @@ const PersonnelCard = ({ item, isAdmin = false }) => {
             }
         >
             <Meta
-                avatar={<Avatar size={100} src={item.picture} />}
+                avatar={<Avatar icon={<TeamOutlined />} size={100} src={imageUrl} />}
                 title={item.name}
                 description={<div>{item.description}</div>}
             />

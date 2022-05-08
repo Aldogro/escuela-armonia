@@ -10,7 +10,6 @@ import { Button, Row, Col } from 'antd'
 import { TeamOutlined } from '@ant-design/icons'
 import './AboutUs.css'
 
-import beatriz  from 'assets/images/about/beatriz-carlotto.jpeg'
 import { routes } from 'routes/routes'
 import { COLLECTIONS } from 'utils/constants'
 
@@ -21,7 +20,7 @@ const director = {
         <p>Maestra de Reiki en varios Sistemas, Numeróloga, Facilitadora de la Técnica Hawaiana Ho´oponopono, de Geometría Sagrada, de Visualización Creativa y otras Terapias Complementarias.</p>
         <b style={{ marginBottom: 0 }}>Directora</b>
     </div>),
-    picture: beatriz,
+    avatar: 'images/staff/beatriz-carlotto.jpeg',
 }
 
 const breadcrumbs = [
@@ -40,11 +39,9 @@ const AboutUs = () => {
     const staffCollection = collection(firestore, COLLECTIONS.STAFF)
     const staffQuery = query(staffCollection, orderBy('name', 'desc'))
 
-    const { status, data } = useFirestoreCollectionData(staffQuery, {
+    const { data } = useFirestoreCollectionData(staffQuery, {
         idField: 'id',
     })
-
-    console.log(data)
 
     return (
         <>
@@ -72,7 +69,7 @@ const AboutUs = () => {
                     <Col key={director.name}>
                         <PersonnelCard item={director} isAdmin={false} />
                     </Col>
-                    {data && data.map((item) => (
+                    {data && data.length > 0 && data.map((item) => (
                         <Col xs={24} md={12} key={item.name}>
                             <PersonnelCard item={item} isAdmin={user && user.signedIn} />
                         </Col>
