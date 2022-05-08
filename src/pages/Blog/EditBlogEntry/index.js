@@ -39,7 +39,6 @@ const EditBlogEntry = () => {
             message.success('Entrada al Blog editada correctamente')
             navigate('/blog')
         } catch (error) {
-            console.log(error)
             message.error('Hubo un problema al intentar editar la entrada al blog')
         } finally {
             setLoading(false)

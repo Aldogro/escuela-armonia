@@ -5,7 +5,8 @@ import Separator from 'components/Separator'
 import { Editor } from 'react-draft-wysiwyg'
 import { EditorState, ContentState, convertToRaw } from 'draft-js'
 import draftToHtml from 'draftjs-to-html'
-import { htmlToDraft } from 'html-to-draftjs'
+import htmlToDraft from 'html-to-draftjs'
+import moment from 'moment'
 import { textEditorOptions } from 'utils/constants'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 
@@ -36,7 +37,7 @@ const CourseForm = ({ course, onSubmit, loading, goBack }) => {
                 onHomeBanner,
                 publish,
                 title,
-                startAt,
+                startAt: moment(startAt),
                 facilitator,
                 content,
                 whatsapp: contactInfo.whatsapp || false,
@@ -65,7 +66,7 @@ const CourseForm = ({ course, onSubmit, loading, goBack }) => {
             onHomeBanner: onHomeBanner || false,
             publish: publish || false,
             title,
-            startAt: startAt.format('DD-MM-yyyy'),
+            startAt: startAt.toString(),
             facilitator,
             content,
             contactInfo: {

@@ -51,14 +51,11 @@ const CoursesPage = () => {
                 }
                 {
                     data && data.length > 0
-                        ? data.map(({ title, startAt, contactInfo, content, facilitator }) => (
+                        ? data.map((item) => (
                             <CourseCard
-                                key={title}
-                                title={title}
-                                startAt={startAt}
-                                contactInfo={contactInfo}
-                                content={content}
-                                facilitator={facilitator}
+                                key={item.title}
+                                item={item}
+                                isAdmin={user && user.signedIn}
                             />
                         ))
                         : <Card loading={status === 'loading'}>No hay Cursos para mostrar</Card>

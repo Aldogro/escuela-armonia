@@ -1,0 +1,11 @@
+.course-action {
+    color: var(--primary) !important;
+}
+
+.course-action--delete {
+    color: var(--danger) !important;
+}
+
+.course-action--publish {
+    color: var(--warning) !important;
+}

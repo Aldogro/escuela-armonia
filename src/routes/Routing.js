@@ -10,6 +10,7 @@ const EditBlogEntry = React.lazy(() => import('pages/Blog/EditBlogEntry'))
 const Blog = React.lazy(() => import('pages/Blog'))
 const Courses = React.lazy(() => import('pages/Courses'))
 const AddCourse = React.lazy(() => import('pages/Courses/AddCourse'))
+const EditCourse = React.lazy(() => import('pages/Courses/EditCourse'))
 const Home = React.lazy(() => import('pages/Home'))
 const LoginPage = React.lazy(() => import('pages/Login'))
 const Page404 = React.lazy(() => import('pages/Page404'))
@@ -19,12 +20,17 @@ const Routing = () => {
 
     return (
         <Routes>
-            <Route path={routes.COURSES} element={<Courses />} />
             <Route path={routes.ADD_COURSE} element={
               <ProtectedRoute user={user && user.signedIn}>
                 <AddCourse />
               </ProtectedRoute>
             } />
+            <Route path={routes.EDIT_COURSE} element={
+              <ProtectedRoute user={user && user.signedIn}>
+                <EditCourse />
+              </ProtectedRoute>
+            } />
+            <Route path={routes.COURSES} element={<Courses />} />
             <Route path={routes.ADD_BLOG_ENTRY} element={
                 <ProtectedRoute user={user && user.signedIn}>
                   <AddBlogEntry />

@@ -71,6 +71,10 @@ a:active {
   border-left: 7px solid var(--primary);
 }
 
+.ant-card-actions {
+  border-radius: 0px 0px 20px 20px;
+}
+
 .ant-card-meta {
   display: flex;
   align-items: center;
