@@ -6,14 +6,17 @@ import { collection, query, orderBy, where } from 'firebase/firestore'
 
 import { Button, Card } from 'antd'
 import { ReadOutlined } from '@ant-design/icons'
+
 import Breadcrumbs from 'components/Breadcrumbs'
 import BlogEntryCard from './BlogEntryCard'
+
 import { COLLECTIONS } from 'utils/constants'
+import { routes } from 'routes/routes'
 import './Blog.css'
 
 const breadcrumbs = [
     {
-        route: '/blog',
+        route: routes.BLOG,
         icon: <ReadOutlined />,
         content: 'Blog',
     },
@@ -40,7 +43,7 @@ const BlogPage = () => {
                 <Button
                     type="primary"
                     style={{ marginLeft: 'auto', display: 'flex' }}
-                    onClick={() => navigate('/blog/add')}
+                    onClick={() => navigate(routes.ADD_BLOG_ENTRY)}
                 >
                     Agregar nota
                 </Button>}

@@ -9,13 +9,14 @@ import { deleteDoc, doc } from 'firebase/firestore'
 import { COLLECTIONS } from 'utils/constants'
 import format from 'date-fns/format'
 import './BlogEntryCard.css'
+import { routes } from 'routes/routes'
 
 const BlogEntryCard = ({ item, isAdmin }) => {
     const [loading, setLoading] = React.useState(false) 
     const navigate = useNavigate()
 
     const editBlogEntry = () => {
-        navigate(`/blog/${item.id}/edit`)
+        navigate(`${routes.BLOG}/${item.id}/edit`)
     }
     const firestore = useFirestore()
     const ref = doc(firestore, COLLECTIONS.BLOG, item.id)

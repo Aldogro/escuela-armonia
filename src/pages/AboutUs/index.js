@@ -1,63 +1,51 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useFirestore, useFirestoreCollectionData, useSigninCheck } from 'reactfire'
+import { collection, query, orderBy } from 'firebase/firestore'
+
 import Breadcrumbs from 'components/Breadcrumbs'
 import PersonnelCard from './PersonnelCard'
 
-import { Row, Col } from 'antd'
+import { Button, Row, Col } from 'antd'
 import { TeamOutlined } from '@ant-design/icons'
 import './AboutUs.css'
 
 import beatriz  from 'assets/images/about/beatriz-carlotto.jpeg'
-import adriana from 'assets/images/about/adriana-yepez.jpeg'
-import andrea from 'assets/images/about/andrea-gimenez.jpeg'
-import daniela from 'assets/images/about/daniela-pirchi.jpg'
+import { routes } from 'routes/routes'
+import { COLLECTIONS } from 'utils/constants'
 
-const personnel = [
-    {
-        name: 'Beatriz Carlotto Sarjanovich',
-        description: (<div>
-            <p>Maestra de Reiki en varios Sistemas, Numeróloga, Facilitadora de la Técnica Hawaiana Ho´oponopono, de Geometría Sagrada, de Visualización Creativa y otras Terapias Complementarias.</p>
-            <b style={{ marginBottom: 0 }}>Directora</b>
-        </div>),
-        picture: beatriz,
-    },
-    {
-        name: 'Adriana Yepez',
-        picture: adriana,
-        description: (
-            <div>
-                <p style={{ marginBottom: 0 }}>Reiki Master, Astróloga, Reiki y Astrología para la Salud, Sesiones de Reiki Usui con integración de la Carta Astral.</p>
-            </div>
-        ),
-    },
-    {
-        name: 'Andrea Giménez',
-        picture: andrea,
-        description: (
-            <div>
-                <p style={{ marginBottom: 0 }}>Reiki Usui, Reiki Karuna, Reiki Mariel, Numerología, Oráculos terapéuticos.</p>
-            </div>
-        ),
-    },
-    {
-        name: 'Daniela Pirchi',
-        picture: daniela,
-        description: (
-            <div>
-                <p style={{ marginBottom: 0 }}>Maestra Personal de Reiki, Masajista.</p>
-            </div>
-        ),
-    },
-]
+const director = {
+    id: '1',
+    name: 'Beatriz Carlotto Sarjanovich',
+    description: (<div>
+        <p>Maestra de Reiki en varios Sistemas, Numeróloga, Facilitadora de la Técnica Hawaiana Ho´oponopono, de Geometría Sagrada, de Visualización Creativa y otras Terapias Complementarias.</p>
+        <b style={{ marginBottom: 0 }}>Directora</b>
+    </div>),
+    picture: beatriz,
+}
 
 const breadcrumbs = [
     {
-        route: '/about-us',
+        route: routes.ABOUT_US,
         icon: <TeamOutlined />,
         content: 'Nosotras'
     },
 ]
 
 const AboutUs = () => {
+    const { data: user } = useSigninCheck()
+    const navigate = useNavigate()
+
+    const firestore = useFirestore()
+    const staffCollection = collection(firestore, COLLECTIONS.STAFF)
+    const staffQuery = query(staffCollection, orderBy('name', 'desc'))
+
+    const { status, data } = useFirestoreCollectionData(staffQuery, {
+        idField: 'id',
+    })
+
+    console.log(data)
+
     return (
         <>
             <Breadcrumbs items={breadcrumbs} />
@@ -70,10 +58,23 @@ const AboutUs = () => {
                         <p>Con Amor.</p>
                         <p style={{ marginBottom: 0 }}><b>Beatriz Carlotto Sarjanovich</b></p>
                         <p><b>Directora</b></p>
+                    {
+                        user && user.signedIn &&
+                        <Button
+                            type="primary"
+                            style={{ marginLeft: 'auto', display: 'flex' }}
+                            onClick={() => navigate(routes.ADD_STAFF)}
+                        >
+                            Agregar Staff
+                        </Button>
+                    }
                     </div>
-                    {personnel.map(({ name, description, picture }) => (
-                        <Col xs={24} md={12} key={name}>
-                            <PersonnelCard name={name} description={description} picture={picture} />
+                    <Col key={director.name}>
+                        <PersonnelCard item={director} isAdmin={false} />
+                    </Col>
+                    {data && data.map((item) => (
+                        <Col xs={24} md={12} key={item.name}>
+                            <PersonnelCard item={item} isAdmin={user && user.signedIn} />
                         </Col>
                     ))}
                 </Row>

@@ -1,16 +1,24 @@
+.staff-form .blog-form-buttons .ant-form-item-control-input-content {
+    margin-top: 35px;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 35px;
+}
 .about-us--container {
     margin-top: 40px;
     font-size: 1rem;
 }
 
-.about-us--container .ant-card {
-    height: 100%;
+.staff-action {
+    color: var(--primary) !important;
 }
-.about-us--container .ant-card-body {
-    height: 100%;
+
+.staff-action--delete {
+    color: var(--danger) !important;
 }
-.about-us--container .ant-card-meta {
-    height: 100%;
+
+.staff-action--publish {
+    color: var(--warning) !important;
 }
 
 @media (max-width: 600px) {

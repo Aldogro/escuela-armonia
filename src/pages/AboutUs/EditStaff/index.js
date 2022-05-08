@@ -6,41 +6,40 @@ import { setDoc, doc } from 'firebase/firestore'
 
 import { ReadOutlined } from '@ant-design/icons'
 import Breadcrumbs from 'components/Breadcrumbs'
-import BlogForm from '../BlogForm'
+import StaffForm from '../StaffForm'
 
 import { COLLECTIONS } from 'utils/constants'
 import { message } from 'antd'
 import { routes } from 'routes/routes'
 
-
-const EditBlogEntry = () => {
+const EditStaff = () => {
     const { id } = useParams()
     const navigate = useNavigate()
     const [loading, setLoading] = React.useState(false)
     const breadcrumbs = [
         {
-            route: routes.BLOG,
+            route: routes.ABOUT_US,
             icon: <ReadOutlined />,
-            content: 'Blog'
+            content: 'Nosotras'
         },
         {
-            route: `${routes.BLOG}/${id || ''}/edit`,
-            content: 'Editar nota'
+            route: `${routes.ABOUT_US}/${id || ''}/edit`,
+            content: 'Editar Staff'
         }
     ]
     const firestore = useFirestore()
 
-    const ref = doc(firestore, COLLECTIONS.BLOG, id)
+    const ref = doc(firestore, COLLECTIONS.STAFF, id)
     const { data } = useFirestoreDocData(ref)
 
-    const editBlogEntry = async (data) => {
+    const editStaff = async (data) => {
         try {
             setLoading(true)
             await setDoc(ref, data)
-            message.success('Entrada al Blog editada correctamente')
-            navigate(routes.BLOG)
+            message.success('Staff editado correctamente')
+            navigate(routes.ABOUT_US)
         } catch (error) {
-            message.error('Hubo un problema al intentar editar la entrada al blog')
+            message.error('Hubo un problema al intentar editar el Staff')
         } finally {
             setLoading(false)
         }
@@ -50,15 +49,15 @@ const EditBlogEntry = () => {
         <div>
             <Breadcrumbs items={breadcrumbs} />
             <div className="layout-content--wrapper">
-                <BlogForm
-                    blogEntry={data}
-                    onSubmit={editBlogEntry}
+                <StaffForm
+                    staff={data}
+                    onSubmit={editStaff}
                     loading={loading}
-                    goBack={() => navigate(routes.BLOG)}
+                    goBack={() => navigate(routes.ABOUT_US)}
                 />
             </div>
         </div>
     )
 }
 
-export default EditBlogEntry
+export default EditStaff
