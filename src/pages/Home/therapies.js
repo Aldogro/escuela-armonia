@@ -1,4 +1,5 @@
 import { ReactComponent as Reiki } from 'assets/images/reiki.svg'
+import { ReactComponent as Astrology } from 'assets/images/astrologia.svg'
 import { ReactComponent as Visualization } from 'assets/images/visualizacion.svg'
 import { ReactComponent as Meditation } from 'assets/images/meditacion.svg'
 import { ReactComponent as Tarot } from 'assets/images/tarot.svg'
@@ -16,6 +17,11 @@ export const therapies = [
         title: 'Reiki',
         image: <Reiki style={{ height: 50, width: 50 }} />,
         description: 'englobada dentro de las Terapias de Energía, es una Técnica de canalización y transmisión de energía vital a través de la imposición de manos, que se utiliza para obtener paz y equilibrio en todos los niveles: físico, mental, emocional, energético y espiritual. Es decir que armoniza todos los Chakras de tu cuerpo.',
+    },
+    {
+        title: 'Astrología',
+        image: <Astrology style={{ height: 50, width: 50 }} />,
+        description: 'En sincronicidad con las energías planetarias y más particularmente con las que están simbolizadas en la Carta Astral, existen tendencias a desequilibrios de la Salud que están presentes desde que nacemos por ero que no son fijas y podemos transformarlas con la información que nos ofrece el Cosmos.'
     },
     {
         title: 'Técnicas de Visualización',
