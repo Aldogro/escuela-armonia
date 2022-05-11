@@ -64,15 +64,26 @@ a:active {
 }
 
 .ant-card {
+  height: 100%;
   border-radius: 20px;
   margin: 10px 0px;
+}
+.ant-card-body {
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
 }
 .ant-card.card-therapy {
   border-left: 7px solid var(--primary);
 }
+.ant-card.additional-padding-bottom .ant-card-body {
+  padding-bottom: 80px;
+}
 
 .ant-card-actions {
   border-radius: 0px 0px 20px 20px;
+  margin-top: -50px;
 }
 
 .ant-card-meta {
@@ -80,8 +91,13 @@ a:active {
   align-items: center;
 }
 
+.ant-card-meta-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
 .ant-card-meta-description {
   font-size: 1rem;
+  color: black;
 }
 
 @media (max-width: 600px) {

@@ -46,6 +46,7 @@ const PersonnelCard = ({ item, isAdmin = false }) => {
 
     return (
         <Card
+            className={ isAdmin ? 'additional-padding-bottom' : '' }
             actions={
                 isAdmin &&
                 [
