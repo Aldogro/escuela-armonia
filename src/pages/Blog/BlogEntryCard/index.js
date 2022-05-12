@@ -35,7 +35,7 @@ const BlogEntryCard = ({ item, isAdmin }) => {
 
     return (
         <Card
-            className="blog-card"
+            className={ isAdmin ? 'blog-card additional-padding-bottom' : 'blog-card' }
             title={
                 <div>
                     <div className="blog-title">

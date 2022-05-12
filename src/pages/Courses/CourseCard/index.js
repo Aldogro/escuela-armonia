@@ -41,6 +41,7 @@ const CourseCard = ({ item, isAdmin }) => {
     return (
         <Card
             title={item.title}
+            className={ isAdmin ? 'additional-padding-bottom' : '' }
             actions={
                 isAdmin &&
                 [
