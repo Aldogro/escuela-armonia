@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSigninCheck } from 'reactfire'
+import { ObservableStatus, SigninCheckResult, useSigninCheck } from 'reactfire'
 import { Routes, Route } from 'react-router-dom'
 import { routes } from 'routes/routes'
 import ProtectedRoute from 'routes/ProtectedRoute'
@@ -22,8 +22,8 @@ const LoginPage = React.lazy(() => import('pages/Login'))
 
 const Page404 = React.lazy(() => import('pages/Page404'))
 
-const Routing = () => {
-    const { data: user } = useSigninCheck()
+const Routing = (): React.ReactElement => {
+    const { data: user }: ObservableStatus<SigninCheckResult> = useSigninCheck()
 
     return (
         <Routes>

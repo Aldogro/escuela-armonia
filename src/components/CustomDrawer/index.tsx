@@ -1,10 +1,11 @@
 import React from 'react'
+
 import { Link } from 'react-router-dom'
 import { routes } from 'routes/routes'
 
 import { useAuth, useSigninCheck } from 'reactfire'
 
-import { Drawer, message } from 'antd'
+import { Drawer, message, DrawerProps } from 'antd'
 import {
   BulbOutlined,
   HomeOutlined,
@@ -50,7 +51,12 @@ const signOut = async (auth) => {
   }
 }
 
-const CustomDrawer = ({ collapsed, toggleCollapsed}) => {
+type CustomDrawerProps = React.PropsWithChildren<{
+  collapsed: boolean;
+  toggleCollapsed: () => void;
+}>;
+
+const CustomDrawer: React.FC = ({ collapsed, toggleCollapsed}: CustomDrawerProps) => {
   const auth = useAuth()
   const { data } = useSigninCheck()
   return (

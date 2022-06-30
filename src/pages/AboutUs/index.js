@@ -37,7 +37,7 @@ const AboutUs = () => {
 
     const firestore = useFirestore()
     const staffCollection = collection(firestore, COLLECTIONS.STAFF)
-    const staffQuery = query(staffCollection, orderBy('name', 'desc'))
+    const staffQuery = query(staffCollection, orderBy('name', 'asc'))
 
     const { data } = useFirestoreCollectionData(staffQuery, {
         idField: 'id',
