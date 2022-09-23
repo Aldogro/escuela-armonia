@@ -22,7 +22,7 @@ const LoginPage = () => {
 
   const successfullyLoggedIn = () => {
     navigate('/')
-    message.success('¡Ingresaste correctamente!')
+    message.success('¡Ingresaste correctamente!!')
   }
 
   useEffect(() => {
